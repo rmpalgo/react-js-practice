@@ -4,17 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App name={"Milo"} breed={"cattle dog"}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+var app = (
+    <div>
+        <App name={"Milo"} breed={"cattle dog"}/>
+        <App name={"Mia"} breed={"lab"}/>
+    </div>
+)
 
 ReactDOM.render(
-    <React.StrictMode>
-        <App name={"Mia"} breed={"Lab"}/>
-    </React.StrictMode>,
-    document.getElementById('root2')
+    app, document.getElementById('root')
 );
+
 serviceWorker.unregister();
