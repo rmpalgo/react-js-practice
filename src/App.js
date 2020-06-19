@@ -10,7 +10,9 @@ class App extends Component {
                 <div>
                     <h1>React app ES6</h1>
                     <p>This is really cool!</p>
-                    <Person />
+                    <Person name={"Milo"} breed={"cattle-dog"}>Hobby is eating snacks!</Person>
+                    <Person name={"Mia"} breed={"Lab"}>Hobby is chasing after squirrels.</Person>
+                    <Person name={"Lucy"} breed={"Arctic-fox"}>Hobby is teasing Mia.</Person>
                 </div>
             </div>
         );
