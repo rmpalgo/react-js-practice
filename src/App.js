@@ -3,6 +3,13 @@ import './App.css';
 import Person from './Person/Person'
 
 class App extends Component {
+    state = {
+        persons: [
+            { name: 'Brownie', breed: 'chihuaha'},
+            { name: "Cinnamon", breed: 'chihuaha'},
+            { name: "Fox Lady", breed: 'chihuaha'}
+        ]
+    }
     render() {
         return (
             //JSX
@@ -10,9 +17,10 @@ class App extends Component {
                 <div>
                     <h1>React app ES6</h1>
                     <p>This is really cool!</p>
-                    <Person name={"Milo"} breed={"cattle-dog"}>Hobby is eating snacks!</Person>
-                    <Person name={"Mia"} breed={"Lab"}>Hobby is chasing after squirrels.</Person>
-                    <Person name={"Lucy"} breed={"Arctic-fox"}>Hobby is teasing Mia.</Person>
+                    <button>Switch Button</button>
+                    <Person name={this.state.persons[0].name} breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
+                    <Person name={this.state.persons[1].name} breed={this.state.persons[1].breed}>Hobby is chasing after squirrels.</Person>
+                    <Person name={this.state.persons[2].name} breed={this.state.persons[2].breed}>Hobby is teasing Mia.</Person>
                 </div>
             </div>
         );
