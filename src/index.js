@@ -7,8 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 var app = (
     <div>
-        <App name={"Milo"} breed={"cattle dog"}/>
-        <App name={"Mia"} breed={"lab"}/>
+        <App />
     </div>
 )
 
