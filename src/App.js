@@ -14,13 +14,14 @@ import './App.css';
 
 class App extends Component {
     render() {
-        return (
-            <div className="App">
-                <div>
-                    <h1>React app ES6</h1>
-                </div>
-            </div>
-        );
+        // return (
+        //     <div className="App">
+        //         <div>
+        //             <h1>React app ES6</h1>
+        //         </div>
+        //     </div>
+        // );
+        return React.createElement('div', null, React.createElement('h1', null, 'Is this Rendering on the page?'));
     }
 }
 
