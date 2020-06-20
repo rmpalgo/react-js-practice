@@ -36,15 +36,27 @@ class App extends Component {
     }
 
     render() {
+
+        const style = {
+            backgroundColor: 'white',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            cursor: 'pointer'
+        };
+
         return (
             //JSX
             <div className="App">
                 <div>
                     <h1>React app ES6</h1>
                     <p>This is really cool!</p>
-                    <button onClick={ () =>
+                    <button
+                        style={style}
+                        onClick={ () =>
                         //inefficient at passing methods
-                        this.switchNameHandler('Mia')}>Switch Button</button>
+                        this.switchNameHandler('Mia')}
+                        >Switch Button</button>
                     <Person
                         name={this.state.persons[0].name}
                         breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
