@@ -25,6 +25,16 @@ class App extends Component {
         });
     };
 
+    nameChangedHandler = (event) =>{
+        this.setState({
+            persons: [
+                {name: "Rhean", breed: "Warlock"},
+                {name: event.target.value, breed: "Warrior"},
+                {name: "Ron", breed: "Templar"}
+            ]
+        });
+    }
+
     render() {
         return (
             //JSX
@@ -42,7 +52,8 @@ class App extends Component {
                         name={this.state.persons[1].name}
                         breed={this.state.persons[1].breed}
                         //bind syntax better performance
-                        click={this.switchNameHandler.bind(this, 'Lucy')}>Hobby is chasing after squirrels.</Person>
+                        click={this.switchNameHandler.bind(this, 'Lucy')}
+                        changed={this.nameChangedHandler}>Hobby is chasing after squirrels.</Person>
                     <Person
                         name={this.state.persons[2].name}
                         breed={this.state.persons[2].breed}>Hobby is teasing Mia.</Person>
