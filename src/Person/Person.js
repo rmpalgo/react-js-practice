@@ -4,7 +4,7 @@ const person = (props) => {
     //JSX is being returned
     return (
         <div>
-            <p>I'm {props.name} and I am {Math.floor(Math.random() * 100)} years old!</p>
+            <p onClick={props.click}>I'm {props.name} and I am {Math.floor(Math.random() * 100)} years old!</p>
             <p>{props.children}</p>
         </div>
     )
