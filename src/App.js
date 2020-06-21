@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
-import UserOutput from './Input/UserOutput'
+import UserOutput from './UserOutput/UserOutput'
+import UserInput from './UserInput/UserInput'
 import './App.css';
 
 
 class App extends Component {
     state = {
-        fruits: [
-            {fruit: "Mango"},
-            {fruit: "Apple"},
-            {fruit: "Banana"}
-        ]
+        username: 'SuperMilo555'
     }
 
-  render() {
+    usernameChangedHandler = (event) => {
+        this.setState({username: event.target.value})
+    }
 
-    return (
-        <div className="App">
-          <div>
-              <h1>This is an example of passing var with props</h1>
-            <UserOutput
-                //passing variables and displaying
-                fruitOne={"Mango"}
-                fruitTwo={"Apple"} />
-          </ div>
-            <h1>This is an example of using state and passing it to props</h1>
-            <UserOutput
-                fruitOne={this.state.fruits[0].fruit}
-                fruitTwo={this.state.fruits[1].fruit}
-            />
-        </div>
-    );
-  }
+    render() {
+        return (
+            <div className={"App"}>
+                <UserInput
+                    changed={this.usernameChangedHandler}
+                    currentName={this.state.username}/>
+                <UserOutput username={"Milo221"}/>
+                <UserOutput username={this.state.username} override={"Override"}/>
+            </div>
+        );
+
+    }
 }
 
 export default App;
