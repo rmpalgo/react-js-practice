@@ -10,7 +10,9 @@ class App extends Component {
             { name: 'Brownie', breed: 'chihuaha'},
             { name: "Cinnamon", breed: 'chihuaha'},
             { name: "Fox Lady", breed: 'chihuaha'}
-        ]
+        ],
+        otherState: 'other state',
+        showPersons: false
     }
 
     switchNameHandler = (newName) => {
@@ -35,6 +37,12 @@ class App extends Component {
         });
     }
 
+    //declaring with arrow function allows that the 'this' keyword returns to this class
+    togglePersonsHandler = () => {
+        const show = this.state.showPersons;
+        this.setState({showPersons: !show});
+    }
+
     render() {
 
         const style = {
@@ -53,22 +61,25 @@ class App extends Component {
                     <p>This is really cool!</p>
                     <button
                         style={style}
-                        onClick={ () =>
-                        //inefficient at passing methods
-                        this.switchNameHandler('Mia')}
+                        onClick={this.togglePersonsHandler}
                         >Switch Button</button>
-                    <Person
-                        name={this.state.persons[0].name}
-                        breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
-                    <Person
-                        name={this.state.persons[1].name}
-                        breed={this.state.persons[1].breed}
-                        //bind syntax better performance
-                        click={this.switchNameHandler.bind(this, 'Lucy')}
-                        changed={this.nameChangedHandler}>Hobby is chasing after squirrels.</Person>
-                    <Person
-                        name={this.state.persons[2].name}
-                        breed={this.state.persons[2].breed}>Hobby is teasing Mia.</Person>
+                    { //can only use ternary, if block statements do not work
+                        this.state.showPersons === true ?
+                            <div >
+                            <Person
+                                name={this.state.persons[0].name}
+                                breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
+                            <Person
+                                name={this.state.persons[1].name}
+                                breed={this.state.persons[1].breed}
+                                //bind syntax better performance
+                                click={this.switchNameHandler.bind(this, 'Lucy')}
+                                changed={this.nameChangedHandler}>Hobby is chasing after squirrels.</Person>
+                            <Person
+                                name={this.state.persons[2].name}
+                                breed={this.state.persons[2].breed}>Hobby is teasing Mia.</Person>
+                        </div>: null
+                    }
                 </div>
             </div>
         );
