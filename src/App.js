@@ -15,18 +15,6 @@ class App extends Component {
         showPersons: false
     }
 
-    switchNameHandler = (newName) => {
-        //console.log('Was clicked!');
-        //Don't access and alter state like this: this.state.persons[0].name = "Milo";
-        this.setState({
-            persons: [
-                {name: newName, breed: "Warlock"},
-                {name: "Ruchie", breed: "Warrior"},
-                {name: "Ron", breed: "Templar"}
-            ]
-        });
-    };
-
     nameChangedHandler = (event) =>{
         this.setState({
             persons: [
@@ -35,6 +23,12 @@ class App extends Component {
                 {name: "Ron", breed: "Templar"}
             ]
         });
+    }
+
+    deletePersonHandler = (personIndex) => {
+        const persons = this.state.persons;
+        persons.splice(personIndex, 1);
+        this.setState({persons: persons});
     }
 
     //declaring with arrow function allows that the 'this' keyword returns to this class
@@ -60,23 +54,12 @@ class App extends Component {
         if( this.state.showPersons ) {
             persons = (
                 <div >
-                    {this.state.persons.map(person => {
+                    {this.state.persons.map((person, index) => {
                         return <Person
+                            click={() => this.deletePersonHandler(index)}
                             name={person.name}
                             breed={person.breed}/>
                     })}
-                    <Person
-                        name={this.state.persons[0].name}
-                        breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
-                    <Person
-                        name={this.state.persons[1].name}
-                        breed={this.state.persons[1].breed}
-                        //bind syntax better performance
-                        click={this.switchNameHandler.bind(this, 'Lucy')}
-                        changed={this.nameChangedHandler}>Hobby is chasing after squirrels.</Person>
-                    <Person
-                        name={this.state.persons[2].name}
-                        breed={this.state.persons[2].breed}>Hobby is teasing Mia.</Person>
                 </div>
             )
         }
