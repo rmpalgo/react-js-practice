@@ -57,9 +57,14 @@ class App extends Component {
         //including a conditional prior to returning jsx
         let persons = null;
 
-        if(this.state.showPersons) {
+        if( this.state.showPersons ) {
             persons = (
                 <div >
+                    {this.state.persons.map(person => {
+                        return <Person
+                            name={person.name}
+                            breed={person.breed}/>
+                    })}
                     <Person
                         name={this.state.persons[0].name}
                         breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
