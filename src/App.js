@@ -7,9 +7,9 @@ import Person from './Person/Person'
 class App extends Component {
     state = {
         persons: [
-            { name: 'Brownie', breed: 'chihuaha'},
-            { name: "Cinnamon", breed: 'chihuaha'},
-            { name: "Fox Lady", breed: 'chihuaha'}
+            { id: '123sdf', name: 'Brownie', breed: 'chihuaha'},
+            { id: '2343', name: "Cinnamon", breed: 'chihuaha'},
+            { id: '123ds', name: "Fox Lady", breed: 'chihuaha'}
         ],
         otherState: 'other state',
         showPersons: false
@@ -26,7 +26,10 @@ class App extends Component {
     }
 
     deletePersonHandler = (personIndex) => {
-        const persons = this.state.persons;
+        //adding slice will store a new copy of the array instead of referencing to it keeping immutability
+        //const persons = this.state.persons.splice();
+        //using spread
+        const persons = [...this.state.persons];
         persons.splice(personIndex, 1);
         this.setState({persons: persons});
     }
@@ -58,7 +61,8 @@ class App extends Component {
                         return <Person
                             click={() => this.deletePersonHandler(index)}
                             name={person.name}
-                            breed={person.breed}/>
+                            breed={person.breed}
+                            key={person.id}/>
                     })}
                 </div>
             )
