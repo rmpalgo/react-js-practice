@@ -53,6 +53,29 @@ class App extends Component {
             cursor: 'pointer'
         };
 
+        //preferred way of outputting conditional content using a variable and
+        //including a conditional prior to returning jsx
+        let persons = null;
+
+        if(this.state.showPersons) {
+            persons = (
+                <div >
+                    <Person
+                        name={this.state.persons[0].name}
+                        breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
+                    <Person
+                        name={this.state.persons[1].name}
+                        breed={this.state.persons[1].breed}
+                        //bind syntax better performance
+                        click={this.switchNameHandler.bind(this, 'Lucy')}
+                        changed={this.nameChangedHandler}>Hobby is chasing after squirrels.</Person>
+                    <Person
+                        name={this.state.persons[2].name}
+                        breed={this.state.persons[2].breed}>Hobby is teasing Mia.</Person>
+                </div>
+            )
+        }
+
         return (
             //JSX
             <div className="App">
@@ -63,23 +86,7 @@ class App extends Component {
                         style={style}
                         onClick={this.togglePersonsHandler}
                         >Switch Button</button>
-                    { //can only use ternary, if block statements do not work
-                        this.state.showPersons === true ?
-                            <div >
-                            <Person
-                                name={this.state.persons[0].name}
-                                breed={this.state.persons[0].breed}>Hobby is eating snacks!</Person>
-                            <Person
-                                name={this.state.persons[1].name}
-                                breed={this.state.persons[1].breed}
-                                //bind syntax better performance
-                                click={this.switchNameHandler.bind(this, 'Lucy')}
-                                changed={this.nameChangedHandler}>Hobby is chasing after squirrels.</Person>
-                            <Person
-                                name={this.state.persons[2].name}
-                                breed={this.state.persons[2].breed}>Hobby is teasing Mia.</Person>
-                        </div>: null
-                    }
+                    {persons}
                 </div>
             </div>
         );
