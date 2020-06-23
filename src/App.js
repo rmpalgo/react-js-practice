@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 
 
@@ -100,17 +100,20 @@ class App extends Component {
 
         return (
             //JSX
-            <div className="App">
-                <div>
-                    <h1>React app ES6</h1>
-                    <p className={classes.join(' ')}>This is really cool!</p>
-                    <button
-                        style={style}
-                        onClick={this.togglePersonsHandler}
-                        >Switch Button</button>
-                    {persons}
+            <StyleRoot>
+                <div className="App">
+                    <div>
+                        <h1>React app ES6</h1>
+                        <p className={classes.join(' ')}>This is really cool!</p>
+                        <button
+                            style={style}
+                            onClick={this.togglePersonsHandler}
+                            >Switch Button</button>
+                        {persons}
+                    </div>
                 </div>
-            </div>
+            </StyleRoot>
+
         );
         // ^ code in the return gets compiled to code below:
         // return React.createElement('div', null, React.createElement('h1', {className: 'App'}, 'Is this Rendering on the page?'));
