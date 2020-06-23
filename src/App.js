@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Radium from 'radium';
+import Person from './Person/Person';
+
 
 
 //class based components
@@ -56,7 +58,11 @@ class App extends Component {
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            ':hover': {
+                backgroundColor: 'pink',
+                color: 'black'
+            }
         };
 
         //preferred way of outputting conditional content using a variable and
@@ -78,6 +84,10 @@ class App extends Component {
                 </div>
             );
             style.backgroundColor = 'red';
+            style[':hover'] =  {
+                backgroundColor: 'salmon',
+                    color: 'black'
+            }
         }
 
         const classes = [];
@@ -106,7 +116,8 @@ class App extends Component {
         // return React.createElement('div', null, React.createElement('h1', {className: 'App'}, 'Is this Rendering on the page?'));
     }
 }
-export default App;
+
+export default Radium(App);
 
 
 
