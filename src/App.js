@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import styled from 'styled-components';
 import Person from './Person/Person';
 
-const StyledButton = styled.button`
-    background-color: ${props => props.alt ? 'red' : 'green'};
-    color: white;
-    font: inherit;
-    border: 1px solid blue;
-    padding: 8px;
-    cursor: pointer;
-    
-    &:hover {
-        background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-        color: black;
-        }
-`;
 
-
-//class based components
 class App extends Component {
     state = {
         persons: [
@@ -35,7 +19,6 @@ class App extends Component {
             return p.id === id;
         });
 
-        //create new copy and immutable
         const person = {
             ...this.state.persons[personIndex]
         };
@@ -49,15 +32,12 @@ class App extends Component {
     }
 
     deletePersonHandler = (personIndex) => {
-        //adding slice will store a new copy of the array instead of referencing to it keeping immutability
-        //const persons = this.state.persons.splice();
-        //using spread
+
         const persons = [...this.state.persons];
         persons.splice(personIndex, 1);
         this.setState({persons: persons});
     }
 
-    //declaring with arrow function allows that the 'this' keyword returns to this class
     togglePersonsHandler = () => {
         const show = this.state.showPersons;
         this.setState({showPersons: !show});
@@ -118,9 +98,9 @@ class App extends Component {
                     <div>
                         <h1>React app ES6</h1>
                         <p className={classes.join(' ')}>This is really cool!</p>
-                        <StyledButton alt={this.state.showPersons}
+                        <div alt={this.state.showPersons}
                             onClick={this.togglePersonsHandler}
-                            >Switch Button</StyledButton>
+                            >Switch Button</div>
                         {persons}
                     </div>
                 </div>
