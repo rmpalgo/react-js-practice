@@ -1,5 +1,5 @@
 import React from 'react';
-//import './Person.css';
+//import './Person.module.css';
 import styled from 'styled-components';
 
 const StyleDiv =   styled.div`
@@ -20,16 +20,12 @@ const StyleDiv =   styled.div`
 
 
 const person = (props) => {
-
-    //JSX is being returned
     return (
-        //<div className={"Person"} style={style}>
         <StyleDiv >
             <p onClick={props.click}>I'm {props.name} and I am {Math.floor(Math.random() * 100)} years old!</p>
             <p>{props.children}</p>
             <input type="text" onChange={props.changed} value={props.name}/>
         </StyleDiv>
-        //</div>
     )
 }
 

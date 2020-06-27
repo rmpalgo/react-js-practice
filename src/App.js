@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classes from './Person/Person.module.css';
 import './App.css';
 import Person from './Person/Person';
 
@@ -45,21 +46,6 @@ class App extends Component {
 
     render() {
 
-        const style = {
-            backgroundColor: 'green',
-            color: 'white',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            cursor: 'pointer',
-            ':hover': {
-                backgroundColor: 'pink',
-                color: 'black'
-            }
-        };
-
-        //preferred way of outputting conditional content using a variable and
-        //including a conditional prior to returning jsx
         let persons = null;
 
         if( this.state.showPersons ) {
@@ -76,38 +62,29 @@ class App extends Component {
                     })}
                 </div>
             );
-            // style.backgroundColor = 'red';
-            // style[':hover'] =  {
-            //     backgroundColor: 'salmon',
-            //         color: 'black'
-            // }
         }
 
-        const classes = [];
+        const assignedClasses = [];
         if(this.state.persons.length <= 2) {
-            classes.push('red');
+            assignedClasses.push(classes.red);
         }
         if(this.state.persons.length <= 1) {
-            classes.push('bold');
+            assignedClasses.push(classes.bold);
         }
 
         return (
-            //JSX
-
                 <div className="App">
                     <div>
                         <h1>React app ES6</h1>
-                        <p className={classes.join(' ')}>This is really cool!</p>
-                        <div alt={this.state.showPersons}
+                        <p className={assignedClasses.join(' ')}>This is really cool!</p>
+                        <button className={classes.Button} alt={this.state.showPersons}
                             onClick={this.togglePersonsHandler}
-                            >Switch Button</div>
+                            >Switch Button</button>
                         {persons}
                     </div>
                 </div>
 
         );
-        // ^ code in the return gets compiled to code below:
-        // return React.createElement('div', null, React.createElement('h1', {className: 'App'}, 'Is this Rendering on the page?'));
     }
 }
 
