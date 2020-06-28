@@ -7,6 +7,7 @@ class Persons extends Component {
 
         return(
         this.props.persons.map((person, index) => {
+            console.log('3a. [Persons.js] After render, children elements executed upon activation...')
             return <Person
                 click={() => this.props.clicked(index)}
                 name={person.name}

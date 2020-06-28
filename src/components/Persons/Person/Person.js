@@ -4,6 +4,7 @@ import './Person.module.css';
 class Person extends Component{
 
     render() {
+        console.log('3b. [Person.js] is rendering...')
         return (
             <div >
                 <p onClick={this.props.click}>I'm {this.props.name} and my breed is {this.props.breed}!</p>
