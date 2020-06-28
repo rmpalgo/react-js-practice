@@ -19,7 +19,8 @@ class App extends Component {
             { id: '123ds', name: "Fox Lady", breed: 'chihuaha'}
         ],
         otherState: 'other state',
-        showPersons: false
+        showPersons: false,
+        showCockpit: true
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -29,6 +30,15 @@ class App extends Component {
 
     componentDidMount() {
         console.log('4. [App.js ] componentDidMount is executed...');
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('[App.js] shouldComponentUpdate');
+        return true;
+    }
+
+    componentDidUpdate() {
+        console.log("5. Update: internal update [App.js] is executed...");
     }
 
     nameChangedHandler = (event, id) =>{
@@ -78,12 +88,16 @@ class App extends Component {
         return (
                 <div className="App">
                     <div>
+                        <button onClick={() => {
+                            this.setState({showCockpit: false})
+                        }}>Remove Cockpit</button>
+                        {this.state.showCockpit ?
                         <Cockpit
                             title={this.props.title}
                             showPersons={this.state.showPersons}
                             persons={this.state.persons}
                             changed={this.togglePersonsHandler}
-                        />
+                        /> : null }
                         {persons}
                     </div>
                 </div>
