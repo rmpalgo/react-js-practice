@@ -5,9 +5,9 @@ import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
 
-var app = (
+let app = (
     <div>
-        <App />
+        <App title={"Title React App"}/>
     </div>
 )
 

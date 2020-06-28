@@ -1,32 +1,17 @@
-import React from 'react';
-//import './Person.module.css';
-import styled from 'styled-components';
+import React, { Component } from 'react';
+import './Person.module.css';
 
-const StyleDiv =   styled.div`
-                width: 60%;
-                margin: 15px auto;
-                border: 1px solid whitesmoke;
-                box-shadow: 0 2px 3px lightgrey;
-                padding: 16px;
-                text-align: center;
+class Person extends Component{
 
-                @media (min-width: 500px) {
-                    {
-                         width: 450px;
-                     }
-                }
-            `;
-
-
-
-const person = (props) => {
-    return (
-        <StyleDiv >
-            <p onClick={props.click}>I'm {props.name} and I am {Math.floor(Math.random() * 100)} years old!</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.changed} value={props.name}/>
-        </StyleDiv>
-    )
+    render() {
+        return (
+            <div >
+                <p onClick={this.props.click}>I'm {this.props.name} and my breed is {this.props.breed}!</p>
+                <p>{this.props.children}</p>
+                <input type="text" onChange={this.props.changed} value={this.props.name}/>
+            </div>
+        )
+    }
 }
 
-export default person;
+export default Person;

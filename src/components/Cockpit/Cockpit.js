@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.module.css'
 
-const cockpit = (props) => {
+const Cockpit = (props) => {
+
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+    })
+
     const assignedClasses = [];
     let btnClass = '';
-    btnClass = classes.Red
     if (props.showPersons) {
         btnClass = classes.Red;
     }
@@ -17,9 +21,9 @@ const cockpit = (props) => {
 
     return (
         <div className={classes.Cockpit}>
-             <h1>React app ES6</h1>
+             <h1>{props.title}</h1>
              <p className={assignedClasses.join(' ')}>This is really cool!</p>
-             <button className={classes.Cockpit}
+             <button className={btnClass}
                 onClick={props.changed}
              >Switch Button</button>
         </div>
@@ -27,4 +31,4 @@ const cockpit = (props) => {
 };
 
 
-export default cockpit;
+export default Cockpit;
