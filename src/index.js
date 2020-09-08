@@ -1,18 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './containers/App';
-import * as serviceWorker from './serviceWorker';
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+function MyInfo() {
+    return (
+        <div>
+            <h1>Ron Palencia</h1>
+            <p>Foodie, Techie, and Funny!</p>
+            <p>3 vacation spots</p>
+            <ol>
+                <li>Tokyo</li>
+                <li>Galapagos Islands</li>
+                <li>Australia</li>
+            </ol>
+        </div>
+    )
+}
 
 
-let app = (
-    <div>
-        <App title={"Title React App"}/>
-    </div>
-)
+ReactDOM.render(<MyInfo />, document.getElementById("root"))
 
-ReactDOM.render(
-    app, document.getElementById('root')
-);
-
-serviceWorker.unregister();
