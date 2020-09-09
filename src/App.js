@@ -1,56 +1,21 @@
 import React from "react"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import MainContent from "./components/MainContent";
 
 function App() {
     return (
         <div>
-
             {/*Navbar*/}
-            <nav>
-                <ul className="nav justify-content-center">
-                    <li className="nav-item">
-                        <a className="nav-link active" href="#">Active</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-            </nav>
+            <Header />
 
             {/*Main*/}
-            <main>
-                <div className="card">
-                    <div className="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </main>
+           <MainContent />
 
-            {/*Footer*/}
-            <footer>
-                <ul className="nav justify-content-center">
-                    <li className="nav-item">
-                        <a className="nav-link active" href="#">Active</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-            </footer>
+            {/*Footer component*/}
+            <Footer />
         </div>
     )
 }
-
 
 export default App
