@@ -1,44 +1,35 @@
 import React from "react"
-import PokemonCard from "./components/PokemonCard"
+import Joke from "./components/Joke"
 
 function App() {
-    return(
+
+    return (
         <div>
-            <PokemonCard
-                pokemon={
-                    {
-                         name: "Pikachu",
-                         imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-                         type: "Electric",
-                         ability: "Electric Bolt"}
-                    }/>
-            <PokemonCard
-                pokemon={
-                    {
-                        name: "Venosaur",
-                         imgUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-                         type: "Grass",
-                         ability: "Chlorophyll"
-                    }
-                }/>
-            <PokemonCard
-                pokemon={
-                    {
-                        name: "Charmander",
-                        imgUrl:  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-                        type: "Fire",
-                        ability: "Solar Power"
-                    }
-                    }/>
-            <PokemonCard
-                pokemon={
-                    {
-                        name: "Charmeleon",
-                        imgUrl:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-                        type:"Fire",
-                        ability:"Solar Power"
-                    }
-                }/>
+            <Joke
+                joke={{
+                    question: "Joke 1",
+                    punchline: "Punchline 1"
+                }}
+            />
+            <Joke
+                joke={{
+                    question: "Joke 2",
+                    punchline: "Punchline 2"
+                }}/>
+            <Joke
+                joke={{
+                    question: "Joke 3",
+                    punchline: "Punchline 3"
+                }}/>
+            <Joke
+                joke={{
+                    question: "Joke 4",
+                    punchline: "Punchline 4"
+                }}/>
+            <Joke
+                joke={{
+                    punchline: "Punchline 5"
+                }}/>
         </div>
     )
 }
