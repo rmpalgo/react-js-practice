@@ -1,15 +1,28 @@
 import React from "react"
-import TodoItem from "./components/TodoItem"
-import "./style.css"
+import PokemonCard from "./components/PokemonCard"
 
 function App() {
-    return (
-        <div className="card" style={{width: "18rem", margin: "8rem auto", padding: "2em"}}>
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
+    return(
+        <div>
+            <PokemonCard name="Pikachu"
+                         imgUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                         type="Electric"
+                         ability="Electric Bolt"/>
+            <PokemonCard name="Venosaur"
+                         imgUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+                         type="Grass"
+                         ability="Chlorophyll"/>
+            <PokemonCard name="Charmander"
+                         imgUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                         type="Fire"
+                         ability="Solar Power"/>
+            <PokemonCard name="Charmeleon"
+                         imgUrl="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"
+                         type="Fire"
+                         ability="Solar Power"/>
         </div>
     )
 }
+
 
 export default App
