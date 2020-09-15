@@ -4,7 +4,7 @@ import dataProducts from "./dataProducts"
 
 function App() {
 const result = dataProducts.map( product => {
-    return <Product data={{
+    return <Product key={product.id} data={{
         id: product.id,
         name: product.name,
         price: product.price,
