@@ -1,6 +1,6 @@
 import React from "react"
 
-function Joke(props) {
+function Info(props) {
 //     let jokeCard =
 //         <div>
 //         <p>Question: {props.joke.question}</p>
@@ -13,13 +13,22 @@ function Joke(props) {
 //                 <p>Punchline: {props.joke.punchline}</p>
 //             </div>
 //     }
+    const langs = props.data.languages.map( lang => <li>{lang}</li> )
 
     return (
         <div>
-            <h3 style={{display: props.joke.question ? "block" : "none"}}>Question: {props.joke.question}</h3>
-            <h3 style={{color: props.joke.question ? "#000" : "#888"}}>Question: {props.joke.punchline}</h3>
+            <h3 >ID: {props.data.id}</h3>
+            <h3 >Name: {props.data.name}</h3>
+            <h3 >Email: {props.data.email}</h3>
+            <h3 >Languages: </h3>
+            <ul >
+                {langs}
+            </ul>
+            <h3>Years of Experience: {props.data.yearsOfExperience}</h3>
+            <hr/>
+            <br/>
         </div>
     )
 }
 
-export default Joke
+export default Info
